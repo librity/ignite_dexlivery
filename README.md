@@ -5,6 +5,7 @@
 - [About](#about)
 - [Bash Commands](#bash_commands)
 - [Elixir Commands](#elixir_commands)
+- [Libs](#libs)
 - [Docs](#docs)
 - [Resources](#resources)
 
@@ -69,14 +70,32 @@ Structs (named maps that belong to a module):
 "Huey Lewis"
 ```
 
+Decimal lib (to accurately deal with money):
+
+```elixir
+> Decimal.cast("42.42")
+{:ok, #Decimal<42.42>}
+> Decimal.cast(42.42)
+{:ok, #Decimal<42.42>}
+> Decimal.new("42.42")
+#Decimal<42.42>
+> Decimal.new(42.42)
+** (FunctionClauseError) no function clause matching in Decimal.new/1
+```
+
+## Libs <a name = "libs"></a>
+
+- https://github.com/rrrene/credo
+- https://github.com/ericmj/decimal
+
 ## Docs <a name = "docs"></a>
 
 - https://elixir-lang.org/crash-course.html
 - https://elixir-lang.org/getting-started/mix-otp/agent.html
-- https://github.com/rrrene/credo
 
 ## Resources <a name = "resources"></a>
 
 - https://marketplace.visualstudio.com/items?itemName=pantajoe.vscode-elixir-credo
 - https://www.tutorialspoint.com/elixir/elixir_structs.htm
 - https://www.tutorialspoint.com/elixir/elixir_lists_and_tuples.htm
+- https://inquisitivedeveloper.com/lwm-elixir-25/

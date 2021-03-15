@@ -5,10 +5,19 @@ defmodule Dexlivery.Orders.Item do
 
   defstruct @keys
 
-  def build(name, category, unit_price, quantity, description \\ nil)
+  def build(unit_price, quantity, name, category, description \\ nil)
 
-  def build(name, category, unit_price, quantity, description)
+  def build(unit_price, quantity, name, category, description)
       when quantity > 0 and category in @categories and unit_price > 0.0 and is_bitstring(name) do
+    unit_price
+    |> Decimal.cast()
+    |> build_item(name, category, quantity, description)
+  end
+
+  def build(_unit_price, _quantity, _name, _category, _description),
+    do: {:error, "Invalid parameters."}
+
+  defp build_item({:ok, unit_price}, quantity, name, category, description) do
     {:ok,
      %__MODULE__{
        name: name,
@@ -19,6 +28,6 @@ defmodule Dexlivery.Orders.Item do
      }}
   end
 
-  def build(_name, _category, _unit_price, _quantity, _description),
-    do: {:error, "Invalid parameters."}
+  defp build_item(_error, _quantity, _name, _category, _description),
+    do: {:error, "Invalid price."}
 end
