@@ -79,3 +79,4 @@ Structs (named maps that belong to a module):
 
 - https://marketplace.visualstudio.com/items?itemName=pantajoe.vscode-elixir-credo
 - https://www.tutorialspoint.com/elixir/elixir_structs.htm
+- https://www.tutorialspoint.com/elixir/elixir_lists_and_tuples.htm
