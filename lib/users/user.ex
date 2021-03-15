@@ -1,18 +1,20 @@
 defmodule Dexlivery.Users.User do
-  @keys [:name, :email, :cpf, :age]
+  @keys [:name, :email, :address, :cpf, :age]
   @enforce_keys @keys
 
   defstruct @keys
 
-  def build(name, email, cpf, age) when age >= 18 and is_bitstring(cpf) do
-    {:ok, %__MODULE__{name: name, email: email, cpf: cpf, age: age}}
+  def build(name, email, address, cpf, age)
+      when age >= 18 and is_bitstring(name) and is_bitstring(email) and is_bitstring(address) and
+             is_bitstring(cpf) do
+    {:ok, %__MODULE__{name: name, email: email, address: address, cpf: cpf, age: age}}
   end
 
-  def build(_name, _email, cpf, _age) when not is_bitstring(cpf),
+  def build(_name, _email, _address, cpf, _age) when not is_bitstring(cpf),
     do: {:error, "CPF must be a bitstring."}
 
-  def build(_name, _email, _cpf, age) when age < 18,
+  def build(_name, _email, _address, _cpf, age) when age < 18,
     do: {:error, "User must be at least 18 years old."}
 
-  def build(_name, _email, _cpf, _age), do: {:error, "Invalid parameters."}
+  def build(_name, _email, _address, _cpf, _age), do: {:error, "Invalid parameters."}
 end

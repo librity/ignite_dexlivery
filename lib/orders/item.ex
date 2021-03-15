@@ -5,13 +5,14 @@ defmodule Dexlivery.Orders.Item do
 
   defstruct @keys
 
-  def build(unit_price, quantity, name, category, description \\ nil)
+  def build(unit_price, quantity, name, category, description \\ "Yummy yummy.")
 
   def build(unit_price, quantity, name, category, description)
-      when quantity > 0 and category in @categories and unit_price > 0.0 and is_bitstring(name) do
+      when quantity > 0 and category in @categories and unit_price > 0.0 and is_bitstring(name) and
+             is_bitstring(description) do
     unit_price
     |> Decimal.cast()
-    |> build_item(name, category, quantity, description)
+    |> build_item(quantity, name, category, description)
   end
 
   def build(_unit_price, _quantity, _name, _category, _description),

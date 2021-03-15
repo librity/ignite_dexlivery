@@ -83,10 +83,52 @@ Decimal lib (to accurately deal with money):
 ** (FunctionClauseError) no function clause matching in Decimal.new/1
 ```
 
+Creating an Order:
+
+```elixir
+> {:ok, item1} = Dexlivery.Orders.Item.build(40.42, 1, "Penne Arrabiata", :italian, "Spicy, good cold.")
+> {:ok, item2} = Dexlivery.Orders.Item.build(22.3, 2, "Cheese Pizza", :pizza, "Tasty")
+> {:ok, user} = Dexlivery.Users.User.build("Tony Soprano", "tony@jerseyoutfit.org", "14 Aspen Drive, North Caldwell", "123-45-6789", 34)
+> Dexlivery.Orders.Order.build(user, [item1, item2])
+{:ok,
+ %Dexlivery.Orders.Order{
+   delivery_address: "14 Aspen Drive, North Caldwell",
+   items: [
+     %Dexlivery.Orders.Item{
+       category: :italian,
+       description: "Spicy, good cold.",
+       name: "Penne Arrabiata",
+       quantity: 1,
+       unit_price: #Decimal<40.42>
+     },
+     %Dexlivery.Orders.Item{
+       category: :pizza,
+       description: "Tasty",
+       name: "Cheese Pizza",
+       quantity: 2,
+       unit_price: #Decimal<22.3>
+     }
+   ],
+   total_price: #Decimal<85.02>,
+   user_cpf: "123-45-6789"
+ }}
+> Dexlivery.Orders.Order.build("bad", [item1, item2])
+{:error, "Invalid parameters."}
+> Dexlivery.Orders.Order.build(user, "bad")
+{:error, "Invalid parameters."}
+```
+
+ExMachina Lib (like Factory Bot):
+
+```elixir
+
+```
+
 ## Libs <a name = "libs"></a>
 
 - https://github.com/rrrene/credo
 - https://github.com/ericmj/decimal
+- https://github.com/thoughtbot/ex_machina
 
 ## Docs <a name = "docs"></a>
 
