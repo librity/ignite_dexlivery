@@ -241,3 +241,4 @@ Orders Agent:
 - https://inquisitivedeveloper.com/lwm-elixir-25/
 - https://stackoverflow.com/questions/36330010/elixir-how-to-deal-with-optional-default-parameters-in-functions-and-nil-valu
 - https://stackoverflow.com/questions/36512627/elixir-convert-struct-to-map
+- https://stackoverflow.com/questions/38778054/how-to-generate-a-random-number-in-elixir

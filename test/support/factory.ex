@@ -48,6 +48,16 @@ defmodule Dexlivery.Factory do
     }
   end
 
+  def item_params_factory do
+    build(:item)
+    |> Map.from_struct()
+  end
+
+  def invalid_item_params_factory do
+    build(:item, quantity: 0)
+    |> Map.from_struct()
+  end
+
   def order_factory do
     %User{cpf: cpf, address: address} = build(:user)
 
@@ -57,5 +67,15 @@ defmodule Dexlivery.Factory do
       total_price: Decimal.new("85.02"),
       user_cpf: cpf
     }
+  end
+
+  def order_params_factory do
+    build(:order)
+    |> Map.from_struct()
+  end
+
+  def invalid_order_params_factory do
+    build(:order, items: [build(:user)])
+    |> Map.from_struct()
   end
 end
