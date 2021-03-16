@@ -19,7 +19,7 @@ defmodule Dexlivery.Users.Agent do
   defp get_user(previous_state, cpf) do
     case Map.get(previous_state, cpf) do
       nil -> {:error, "User not found."}
-      user -> {:error, user}
+      user -> {:ok, user}
     end
   end
 end

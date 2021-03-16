@@ -174,11 +174,19 @@ User Agent:
 }
 ```
 
+Elixir UUID lib:
+
+```elixir
+> UUID.uuid4()
+"dfe79f96-ddbf-4bdc-9ed9-e6b869e9d64e"
+```
+
 ## Libs <a name = "libs"></a>
 
 - https://github.com/rrrene/credo
 - https://github.com/ericmj/decimal
 - https://github.com/thoughtbot/ex_machina
+- https://github.com/zyro/elixir-uuid
 
 ## Docs <a name = "docs"></a>
 
