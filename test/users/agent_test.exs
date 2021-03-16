@@ -59,7 +59,7 @@ defmodule Dexlivery.Users.AgentTest do
       :ok
     end
 
-    test "should return all saved user" do
+    test "should return all saved users" do
       ["1234567", "42424242224", "24242424242424"]
       |> Stream.map(fn cpf -> build(:user, cpf: cpf) end)
       |> Enum.each(fn user -> UserAgent.save(user) end)
