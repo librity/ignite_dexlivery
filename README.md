@@ -141,6 +141,9 @@ ExMachina Lib (like Factory Bot):
 - https://elixir-lang.org/getting-started/mix-otp/agent.html
 - https://github.com/christopheradams/elixir_style_guide#modules
 
+- https://hexdocs.pm/decimal/readme.html
+- https://hexdocs.pm/ex_machina/readme.html
+
 ## Resources <a name = "resources"></a>
 
 - https://marketplace.visualstudio.com/items?itemName=pantajoe.vscode-elixir-credo

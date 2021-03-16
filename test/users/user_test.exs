@@ -1,7 +1,9 @@
 defmodule Dexlivery.Users.UserTest do
+  use ExUnit.Case
+
   alias Dexlivery.Users.User
 
-  use ExUnit.Case
+  import Dexlivery.Factory
 
   describe "build/5" do
     test "should return a user when all params are valid" do
@@ -14,15 +16,7 @@ defmodule Dexlivery.Users.UserTest do
           34
         )
 
-      expected =
-        {:ok,
-         %User{
-           name: "Tony Soprano",
-           email: "tony@jerseyoutfit.org",
-           address: "14 Aspen Drive, North Caldwell",
-           cpf: "123-45-6789",
-           age: 34
-         }}
+      expected = {:ok, build(:user)}
 
       assert return == expected
     end
