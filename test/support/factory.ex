@@ -1,6 +1,6 @@
 defmodule Dexlivery.Factory do
   alias Dexlivery.Users.User
-  alias Dexlivery.Orders.Item
+  alias Dexlivery.Orders.{Item, Order}
 
   use ExMachina
 
@@ -15,14 +15,37 @@ defmodule Dexlivery.Factory do
   end
 
   def item_factory do
-    {:ok, unit_price} = Decimal.cast(40.42)
-
     %Item{
       category: :italian,
       description: "Spicy, good cold.",
       name: "Penne Arrabiata",
       quantity: 1,
-      unit_price: unit_price
+      unit_price: Decimal.new("40.42")
+    }
+  end
+
+  def italian_item_factory do
+    build(:item)
+  end
+
+  def pizza_item_factory do
+    %Item{
+      category: :pizza,
+      description: "Tasty",
+      name: "Cheese Pizza",
+      quantity: 2,
+      unit_price: Decimal.new("22.3")
+    }
+  end
+
+  def order_factory do
+    %User{cpf: cpf, address: address} = build(:user)
+
+    %Order{
+      delivery_address: address,
+      items: [build(:italian_item), build(:pizza_item)],
+      total_price: Decimal.new("85.02"),
+      user_cpf: cpf
     }
   end
 end
