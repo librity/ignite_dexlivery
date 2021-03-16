@@ -9,6 +9,11 @@ defmodule Dexlivery.Users.CreateOrUpdate do
     |> save_user()
   end
 
-  defp save_user({:ok, %User{} = user}), do: UserAgent.save(user)
+  defp save_user({:ok, %User{} = user}) do
+    UserAgent.save(user)
+
+    {:ok, "User successfully created."}
+  end
+
   defp save_user({:error, _reason} = error), do: error
 end

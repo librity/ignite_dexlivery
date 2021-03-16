@@ -240,3 +240,4 @@ Orders Agent:
 - https://www.tutorialspoint.com/elixir/elixir_lists_and_tuples.htm
 - https://inquisitivedeveloper.com/lwm-elixir-25/
 - https://stackoverflow.com/questions/36330010/elixir-how-to-deal-with-optional-default-parameters-in-functions-and-nil-valu
+- https://stackoverflow.com/questions/36512627/elixir-convert-struct-to-map

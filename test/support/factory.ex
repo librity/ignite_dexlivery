@@ -14,6 +14,16 @@ defmodule Dexlivery.Factory do
     }
   end
 
+  def user_params_factory do
+    build(:user)
+    |> Map.from_struct()
+  end
+
+  def invalid_user_params_factory do
+    build(:user, age: 12)
+    |> Map.from_struct()
+  end
+
   def item_factory do
     %Item{
       category: :italian,
