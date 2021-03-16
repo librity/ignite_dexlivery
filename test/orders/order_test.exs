@@ -1,9 +1,9 @@
 defmodule Dexlivery.Orders.OrderTest do
   use ExUnit.Case
 
-  alias Dexlivery.Orders.Order
-
   import Dexlivery.Factory
+
+  alias Dexlivery.Orders.Order
 
   describe "build/2" do
     test "should return an order when all params are valid" do

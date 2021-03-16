@@ -1,9 +1,9 @@
 defmodule Dexlivery.Orders.ItemTest do
   use ExUnit.Case
 
-  alias Dexlivery.Orders.Item
-
   import Dexlivery.Factory
+
+  alias Dexlivery.Orders.Item
 
   describe "build/4" do
     test "should return an item when all params are valid" do

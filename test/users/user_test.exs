@@ -1,9 +1,9 @@
 defmodule Dexlivery.Users.UserTest do
   use ExUnit.Case
 
-  alias Dexlivery.Users.User
-
   import Dexlivery.Factory
+
+  alias Dexlivery.Users.User
 
   describe "build/5" do
     test "should return a user when all params are valid" do

@@ -1,6 +1,6 @@
 defmodule Dexlivery.Orders.Order do
-  alias Dexlivery.Users.User
   alias Dexlivery.Orders.Item
+  alias Dexlivery.Users.User
 
   @keys [:user_cpf, :delivery_address, :items, :total_price]
   @enforce_keys @keys

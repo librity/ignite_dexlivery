@@ -129,6 +129,23 @@ ExMachina Lib (like Factory Bot):
 "admin"
 ```
 
+Agents (processes that persist data):
+
+```elixir
+> {:ok, agent} = Agent.start_link(fn -> %{} end)
+{:ok, #PID<0.215.0>}
+> Process.alive?(agent)
+true
+> Agent.update(agent, fn previous_state -> Map.put(previous_state, :money, "Good") end)
+:ok
+> Agent.get(agent, fn previous_state -> previous_state end)
+%{money: "Good"}
+> Agent.update(agent, fn previous_state -> Map.put(previous_state, :foo, "BAR") end)
+:ok
+> Agent.get(agent, fn previous_state -> previous_state end)
+%{foo: "BAR", money: "Good"}
+```
+
 ## Libs <a name = "libs"></a>
 
 - https://github.com/rrrene/credo

@@ -1,8 +1,8 @@
 defmodule Dexlivery.Factory do
+  use ExMachina
+
   alias Dexlivery.Users.User
   alias Dexlivery.Orders.{Item, Order}
-
-  use ExMachina
 
   def user_factory do
     %User{
