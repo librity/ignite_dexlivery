@@ -8,7 +8,12 @@ defmodule Dexlivery.Orders.Item do
   def build(unit_price, quantity, name, category, description \\ "Yummy yummy.")
 
   def build(unit_price, quantity, name, category, description)
-      when quantity > 0 and category in @categories and unit_price > 0.0 and is_bitstring(name) and
+      when quantity > 0 and
+             is_integer(quantity) and
+             category in @categories and
+             unit_price > 0.0 and
+             is_float(unit_price) and
+             is_bitstring(name) and
              is_bitstring(description) do
     unit_price
     |> Decimal.cast()
