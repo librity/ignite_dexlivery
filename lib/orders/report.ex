@@ -14,7 +14,6 @@ defmodule Dexlivery.Orders.Report do
     OrderAgent.get_all()
     |> Map.values()
     |> Enum.map(&build_order_line/1)
-    |> IO.inspect()
   end
 
   defp build_order_line(%Order{user_cpf: cpf, items: items, total_price: total_price}) do

@@ -25,4 +25,5 @@ dexlivery-*.tar
 # Temporary files for e.g. tests
 /tmp
 
-report.csv
+# Generated Reports
+*.csv

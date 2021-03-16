@@ -12,7 +12,7 @@ defmodule Dexlivery.Orders.AgentTest do
       :ok
     end
 
-    test "shoudl save the order" do
+    test "should save the order" do
       order = build(:order)
 
       assert {:ok, _uuid} = OrderAgent.save(order)

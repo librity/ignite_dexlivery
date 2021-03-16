@@ -13,7 +13,7 @@ defmodule Dexlivery.Users.AgentTest do
       :ok
     end
 
-    test "shoudl save the user" do
+    test "should save the user" do
       user = build(:user)
 
       assert UserAgent.save(user) == :ok
