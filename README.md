@@ -11,8 +11,7 @@
 
 ## About <a name = "about"></a>
 
-A demo Elixir program that
-It uses `Structs` as `Data Transfer Objects`, and `Agents` to persist
+A demo Elixir program that uses `Structs` as `Data Transfer Objects`, and `Agents` to persist
 state between precesses.
 
 ## Bash Commands <a name = "bash_commands"></a>
