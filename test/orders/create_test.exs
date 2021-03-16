@@ -47,6 +47,16 @@ defmodule Dexlivery.Orders.CreateTest do
       assert return == expected
     end
 
+    test "should return an error when there aren't any items", %{user_cpf: user_cpf} do
+      return =
+        %{user_cpf: user_cpf, items: []}
+        |> Create.call()
+
+      expected = {:error, "Invalid parameters."}
+
+      assert return == expected
+    end
+
     test "should return an error when user doesn't exist" do
       items = [build(:italian_item_params), build(:pizza_item_params)]
 

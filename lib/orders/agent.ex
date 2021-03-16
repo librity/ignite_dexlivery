@@ -17,7 +17,7 @@ defmodule Dexlivery.Orders.Agent do
 
   def get(uuid), do: Agent.get(__MODULE__, &get_order(&1, uuid))
 
-  def get_all, do: Agent.get(__MODULE__, fn orders -> orders end)
+  def get_all, do: Agent.get(__MODULE__, & &1)
 
   defp update_state(previous_state, %Order{} = order, uuid) do
     Map.put(previous_state, uuid, order)

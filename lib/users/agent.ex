@@ -11,7 +11,7 @@ defmodule Dexlivery.Users.Agent do
 
   def get(cpf), do: Agent.get(__MODULE__, &get_user(&1, cpf))
 
-  def get_all, do: Agent.get(__MODULE__, fn users -> users end)
+  def get_all, do: Agent.get(__MODULE__, & &1)
 
   defp update_state(previous_state, %User{cpf: cpf} = user),
     do: Map.put(previous_state, cpf, user)

@@ -217,6 +217,23 @@ Orders Agent:
 }
 ```
 
+Orders Report:
+
+```elixir
+> Dexlivery.start_agents()
+> user_params = Dexlivery.Factory.build(:user)
+> Dexlivery.create_or_update_user(user_params)
+> item1 = Dexlivery.Factory.build(:italian_item_params)
+> item2 = Dexlivery.Factory.build(:pizza_item_params)
+> Dexlivery.create_order(%{user_cpf: "123-45-6789", items: [item1]})
+> Dexlivery.create_order(%{user_cpf: "123-45-6789", items: [item2]})
+> Dexlivery.create_order(%{user_cpf: "123-45-6789", items: [item1, item2]})
+> Dexlivery.Orders.Report.generate()
+["123-45-6789,pizza,2,22.3,44.6",
+ "123-45-6789,italian,1,40.42pizza,2,22.3,85.02",
+ "123-45-6789,italian,1,40.42,40.42"]
+```
+
 ## Libs <a name = "libs"></a>
 
 - https://github.com/rrrene/credo
@@ -229,7 +246,6 @@ Orders Agent:
 - https://elixir-lang.org/crash-course.html
 - https://elixir-lang.org/getting-started/mix-otp/agent.html
 - https://github.com/christopheradams/elixir_style_guide#modules
-
 - https://hexdocs.pm/decimal/readme.html
 - https://hexdocs.pm/ex_machina/readme.html
 
