@@ -146,6 +146,34 @@ true
 %{foo: "BAR", money: "Good"}
 ```
 
+User Agent:
+
+```elixir
+> Dexlivery.start_agents()
+{:ok, #PID<0.264.0>}
+> user_params = %{
+...(12)>       name: "Tony Soprano",
+...(12)>       email: "tony@jerseyoutfit.org",
+...(12)>       address: "14 Aspen Drive, North Caldwell",
+...(12)>       cpf: "123-45-6789",
+...(12)>       age: 34
+...(12)>     }
+> Dexlivery.create_or_update_user(user_params)
+:ok
+> Dexlivery.create_or_update_user(%{})
+** (FunctionClauseError) no function clause matching in Dexlivery.Users.CreateOrUpdate.call/1
+> Dexlivery.get_users
+%{
+  "123-45-6789" => %Dexlivery.Users.User{
+    address: "14 Aspen Drive, North Caldwell",
+    age: 34,
+    cpf: "123-45-6789",
+    email: "tony@jerseyoutfit.org",
+    name: "Tony Soprano"
+  }
+}
+```
+
 ## Libs <a name = "libs"></a>
 
 - https://github.com/rrrene/credo
