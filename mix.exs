@@ -8,7 +8,8 @@ defmodule Dexlivery.MixProject do
       elixir: "~> 1.11",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      elixirc_paths: elixirc_paths(Mix.env())
+      elixirc_paths: elixirc_paths(Mix.env()),
+      xref: [exclude: :crypto]
     ]
   end
 
