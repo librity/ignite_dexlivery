@@ -23,7 +23,7 @@ defmodule Dexlivery.Users.CreateOrUpdateTest do
       assert return == expected
     end
 
-    test "should return an error when when params aren't valid" do
+    test "should return an error when params aren't valid" do
       return =
         build(:invalid_user_params)
         |> CreateOrUpdate.call()

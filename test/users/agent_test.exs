@@ -91,6 +91,4 @@ defmodule Dexlivery.Users.AgentTest do
       assert UserAgent.get_all() == expected
     end
   end
-
-  defp random_cpf, do: :rand.uniform(100_000) |> Integer.to_string()
 end

@@ -51,11 +51,25 @@ defmodule Dexlivery.Factory do
   def item_params_factory do
     build(:item)
     |> Map.from_struct()
+    |> Map.put(:unit_price, 40.42)
+  end
+
+  def italian_item_params_factory do
+    build(:italian_item)
+    |> Map.from_struct()
+    |> Map.put(:unit_price, 40.42)
+  end
+
+  def pizza_item_params_factory do
+    build(:pizza_item)
+    |> Map.from_struct()
+    |> Map.put(:unit_price, 22.3)
   end
 
   def invalid_item_params_factory do
     build(:item, quantity: 0)
     |> Map.from_struct()
+    |> Map.put(:unit_price, 22.3)
   end
 
   def order_factory do
