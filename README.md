@@ -152,12 +152,12 @@ User Agent:
 > Dexlivery.start_agents()
 {:ok, #PID<0.264.0>}
 > user_params = %{
-...(12)>       name: "Tony Soprano",
-...(12)>       email: "tony@jerseyoutfit.org",
-...(12)>       address: "14 Aspen Drive, North Caldwell",
-...(12)>       cpf: "123-45-6789",
-...(12)>       age: 34
-...(12)>     }
+    name: "Tony Soprano",
+    email: "tony@jerseyoutfit.org",
+    address: "14 Aspen Drive, North Caldwell",
+    cpf: "123-45-6789",
+    age: 34
+  }
 > Dexlivery.create_or_update_user(user_params)
 :ok
 > Dexlivery.create_or_update_user(%{})
@@ -179,6 +179,42 @@ Elixir UUID lib:
 ```elixir
 > UUID.uuid4()
 "dfe79f96-ddbf-4bdc-9ed9-e6b869e9d64e"
+```
+
+Orders Agent:
+
+```elixir
+> Dexlivery.start_agents()
+> user_params = Dexlivery.Factory.build(:user)
+> Dexlivery.create_or_update_user(user_params)
+> item = %{
+    category: :italian,
+    description: "Spicy, good cold.",
+    name: "Penne Arrabiata",
+    quantity: 1,
+    unit_price: 40.42
+  }
+> {:ok, order_id} = Dexlivery.create_order(%{user_cpf: "123-45-6789", items: [item]})
+{:ok, "ae6b8960-a972-487b-9900-8f3c5b48a2f2"}
+> Dexlivery.update_order(%{user_cpf: "123-45-6789", items: [item]}, order_id)
+{:ok, "ae6b8960-a972-487b-9900-8f3c5b48a2f2"}
+> Dexlivery.get_orders
+%{
+  "ae6b8960-a972-487b-9900-8f3c5b48a2f2" => %Dexlivery.Orders.Order{
+    delivery_address: "14 Aspen Drive, North Caldwell",
+    items: [
+      %Dexlivery.Orders.Item{
+        category: :italian,
+        description: "Spicy, good cold.",
+        name: "Penne Arrabiata",
+        quantity: 1,
+        unit_price: #Decimal<40.42>
+      }
+    ],
+    total_price: #Decimal<40.42>,
+    user_cpf: "123-45-6789"
+  }
+}
 ```
 
 ## Libs <a name = "libs"></a>

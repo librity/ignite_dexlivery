@@ -27,12 +27,13 @@ defmodule Dexlivery.MixProject do
       {:credo, "~> 1.5", only: [:dev, :test], runtime: false},
       {:decimal, "~> 2.0"},
       {:ex_machina, "~> 2.7.0"},
-      { :elixir_uuid, "~> 1.2" }
+      {:elixir_uuid, "~> 1.2"}
     ]
   end
 
   # This makes sure your factory and any other modules in test/support are compiled
   # when in the test environment.
+  defp elixirc_paths(:dev), do: ["lib", "test/support"]
   defp elixirc_paths(:test), do: ["lib", "test/support"]
   defp elixirc_paths(_), do: ["lib"]
 end
