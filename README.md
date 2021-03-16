@@ -28,6 +28,8 @@ $ mix credo gen.config
 $ mix credo --strict
 # Start your project as an Interactive Elixir session
 $ iex -S mix
+# Run console on test environment
+$ MIX_ENV=test iex -S mix
 # Run tests
 $ mix test
 ```
@@ -121,7 +123,10 @@ Creating an Order:
 ExMachina Lib (like Factory Bot):
 
 ```elixir
-
+> ExMachina.sequence(:email, &"email-#{&1}@example.com")
+"email-0@example.com"
+> ExMachina.sequence(:role, ["admin", "user", "other"])
+"admin"
 ```
 
 ## Libs <a name = "libs"></a>
@@ -134,6 +139,7 @@ ExMachina Lib (like Factory Bot):
 
 - https://elixir-lang.org/crash-course.html
 - https://elixir-lang.org/getting-started/mix-otp/agent.html
+- https://github.com/christopheradams/elixir_style_guide#modules
 
 ## Resources <a name = "resources"></a>
 

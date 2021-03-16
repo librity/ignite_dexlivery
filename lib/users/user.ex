@@ -10,8 +10,21 @@ defmodule Dexlivery.Users.User do
     {:ok, %__MODULE__{name: name, email: email, address: address, cpf: cpf, age: age}}
   end
 
-  def build(_name, _email, _address, cpf, _age) when not is_bitstring(cpf),
-    do: {:error, "CPF must be a bitstring."}
+  def build(name, _email, _address, _cpf, _age)
+      when not is_bitstring(name),
+      do: {:error, "Name must be a bitstring."}
+
+  def build(_name, email, _address, _cpf, _age)
+      when not is_bitstring(email),
+      do: {:error, "Email must be a bitstring."}
+
+  def build(_name, _email, address, _cpf, _age)
+      when not is_bitstring(address),
+      do: {:error, "Address must be a bitstring."}
+
+  def build(_name, _email, _address, cpf, _age)
+      when not is_bitstring(cpf),
+      do: {:error, "CPF must be a bitstring."}
 
   def build(_name, _email, _address, _cpf, age) when age < 18,
     do: {:error, "User must be at least 18 years old."}
